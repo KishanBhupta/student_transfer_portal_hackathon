@@ -1,0 +1,280 @@
+{% load static %}
+<!-- /*
+* Template Name: Property
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="{% static "https://fonts.googleapis.com" %}">
+    <link rel="preconnect" href="{% static "https://fonts.gstatic.com" %}" crossorigin>
+    <link href="{% static "https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" %}"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{% static "fonts/icomoon/style.css" %}">
+    <link rel="stylesheet" href="{% static "fonts/flaticon/font/flaticon.css" %}">
+
+    <link rel="stylesheet" href="{% static "css/tiny-slider.css" %}">
+    <link rel="stylesheet" href="{% static "css/aos.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+    <title>Student Transfer</title>
+</head>
+
+<body>
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    {% comment %} <nav class="site-nav">
+        <div class="container">
+            <div class="menu-bg-wrap">
+                <div class="site-navigation">
+                    <a href="{% url "home" %}" class="logo m-0 float-start">STP</a>
+
+					<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+						<li class="active"><a href="{% url "home" %}">Home</a></li>
+						<li class="has-children">
+							<a href="{% url "properties" %}">Properties</a>
+							<ul class="dropdown">
+								<li><a href="#">Buy Property</a></li>
+								<li><a href="#">Sell Property</a></li>
+								<li class="has-children">
+									<a href="#">Dropdown</a>
+									<ul class="dropdown">
+										<li><a href="#">Sub Menu One</a></li>
+										<li><a href="#">Sub Menu Two</a></li>
+										<li><a href="#">Sub Menu Three</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="{% url "student_transfer" %}">Apply For Transfer </a></li>
+						 
+						<li><a href="{% url "about" %}">About Us</a></li>
+						<li><a href="{% url "contact" %}">Contact Us</a></li>
+						<li><a href="{% url "s_login" %}">Login</a></li>
+						<li><a href="{% url "s_register" %}">Sing Up</a></li>
+
+					</ul>
+
+                    <a href="#"
+                        class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+                        data-toggle="collapse" data-target="#main-navbar">
+                        <span></span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </nav> {% endcomment %}
+
+    <!-- <div class="hero page-inner overlay" style="background-image: url('images/hero_bg_1.jpg');">
+
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="col-lg-9 text-center mt-5">
+					<h1 class="heading" data-aos="fade-up">Contact Us</h1>
+
+					<nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+						<ol class="breadcrumb text-center justify-content-center">
+							<li class="breadcrumb-item "><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item active text-white-50" aria-current="page">Contact</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+    
+
+    <div class="section">
+        <div class="container">
+    <br><br>
+    <p class="h3 text-center" style="color:rgb(46, 41, 41); font-family:poppins">Transfer
+        Form</p>
+    <br><br>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-15" data-aos="fade-up" data-aos-delay="200">
+                    <form action="/student_transfer_adddition/" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-4 mb-3">
+                                <input type="text textb" class="form-control"
+                                    autocomplete="off" name="t_s_name"
+                                    placeholder="Name"
+                                    required>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <div class="form-control">
+                                    <lebal>Gender : </lebal>
+                                    <input type="radio" autocomplete="off"
+                                        name="t_gender" placeholder="Gender"
+                                        style="border: none; border-bottom: 1px solid black; border-radius: 0px;font-family:heebo;"
+                                        required>
+
+                                    <label for="Male">Male</label>
+                                    <input type="radio" name="t_gender"
+                                        value="Male">
+                                    <label for="Female">Female</label>
+                                    <input type="radio" name="t_gender"
+                                        value="Female">
+                                    <label for="Other">Other</label></div>
+                            </div>
+
+                            <div class="col-4 mb-3">
+                                <div class="form-control">
+                                    <lable>DOB :</lable>
+                                    <input type="date" autocomplete="off"
+                                        name="t_date"
+                                        style="width:80%; border:none;"
+                                        required>
+                                </div> </div>
+                            <div class="col-4 mb-3">
+                                <div class="form-control">
+                                    <label>Category:</label>
+                                    <select name="t_community_category"
+                                        style="width:80%; border:none; background-color:white;">
+                                        <option value="General">General</option>
+                                        <option value="OBC">OBC</option>
+                                        <option value="SCBC">SCBC</option>
+                                    </select> </div> </div>
+                            <div class="col-4 mb-3">
+                                <input type autocomplete="off"
+                                    name="t_phone_number" class="form-control"
+                                    placeholder="Phone Number"
+                                    required>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <input type="text" autocomplete="off"
+                                    name="t_email" class="form-control"
+                                    placeholder="Email-id"
+                                    required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <input type="text" autocomplete="off"
+                                    name="t_present_college"
+                                    class="form-control"
+                                    placeholder="Present College Name"
+                                    required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="form-control">
+                                    <select name="t_future_college"
+                                        style="border:none;  background-color:white; width:100%; ">
+                                        <option value="1">Select college to
+                                            Transfer </option>
+                                        <option value="2">A</option>
+                                        <option value="3">B</option>
+                                    </select> </div> </div>
+                            <div class="col-6 mb-3">
+                                <input type="text" autocomplete="off"
+                                    name="Cource" class="form-control"
+                                    placeholder="Course Name"
+                                    required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <input type="text" autocomplete="off"
+                                    name="markslastsem" class="form-control"
+                                    placeholder="Marks Of Last Sem"
+                                    required>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <div class="form-control">
+                                    <lebel>Adhar Card :</lebel>
+                                    <input type="file" style="width: 80%;"
+                                        name="t_aadhar_card"
+                                        accept="image/png, image/jpeg"
+                                        class="form-control"> </div> </div>
+                            <div class="col-4 mb-3">
+                                <div class="form-control">
+                                    <lebel>Cast Certificate :</lebel>
+                                    <input type="file" style="width: 80%;"
+                                        name="t_caste"
+                                        accept="image/png, image/jpeg"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <div class="form-control">
+                                    <lebel>Migration Certificate :</lebel>
+                                    <input type="file" style="width: 80%;"
+                                        name="t_migration_certificate"
+                                        accept="image/png, image/jpeg"
+                                        class="form-control">
+                                </div> </div>
+
+                            <div class="col-6 mb-3">
+                                <div class="form-control">
+                                    <textarea name="t_reason_for_transfer" id
+                                        cols="25" rows="4" class="form-control"
+                                        placeholder="Reason For Transfer"
+                                        required></textarea></div>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="form-control">
+                                    <textarea name="t_address" id cols="25"
+                                        rows="4" class="form-control"
+                                        placeholder="Address"
+                                        required></textarea></div>
+                            </div>
+
+                            <div class>
+                                <input type="submit" value="Submit"
+                                    class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div> <!-- /.untree_co-section -->
+
+
+
+    <!-- Preloader -->
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+
+    <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "js/tiny-slider.js" %}"></script>
+    <script src="{% static "js/aos.js" %}"></script>
+    <script src="{% static "js/navbar.js" %}"></script>
+    <script src="{% static "js/counter.js" %}"></script>
+    <script src="{% static "js/custom.js" %}"></script>
+</body>
+
+</html>
+
+
